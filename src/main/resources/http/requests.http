@@ -1,0 +1,15 @@
+
+### signIn (query must as first query sended)
+POST http://localhost/api/signIn
+Content-Type: application/json
+
+{
+  "email": "admin@gmail.com",
+  "hashPassword" : "qwerty"
+}
+
+
+### only ADMIN (by "token")
+GET http://localhost/api/users
+Authentication: token
+
