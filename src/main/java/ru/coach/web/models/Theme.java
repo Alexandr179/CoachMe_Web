@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import net.bytebuddy.implementation.bind.annotation.IgnoreForBinding;
 
 import javax.persistence.*;
 import java.util.List;
@@ -13,7 +14,6 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-
 @Entity
 @Table
 public class Theme {
@@ -26,6 +26,13 @@ public class Theme {
     @ManyToMany
     @JoinTable(name = "simple_user_theme", joinColumns = @JoinColumn(name = "theme_id", referencedColumnName = "id"),
             inverseJoinColumns = @JoinColumn(name = "simple_user_id", referencedColumnName = "id"))
-    @JsonIgnore
     private List<User> users;
+
+    @Override
+    public String toString() {
+        return "Theme{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                '}';
+    }
 }

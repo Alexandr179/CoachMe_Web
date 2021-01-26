@@ -1,0 +1,18 @@
+@font-face {
+  font-family: Copperplate;
+  src: url(/fonts/copperplate.ttf);
+}
+
+@font-face {
+  font-family: A_La_Russ;
+  src: url(/fonts/A_La_Russ.ttf);
+}
+
+.container.jumbotron {
+  width: 1100px;
+  background: none;
+  text-align: center;
+  h3 {
+    font-family: A_La_Russ, 'Comic Sans MS', serif;
+  }
+}

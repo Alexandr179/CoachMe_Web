@@ -51,6 +51,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 //                .requestMatchers(PathRequest.toStaticResources().atCommonLocations())
 //                .permitAll()
 
+//                .antMatchers("/mediasave.ru/**").permitAll()
+
                 .antMatchers("/signUp").permitAll()// доступно всем
                 .antMatchers("/profile/**").authenticated()// тем, кто прошел форму логина (аутентифицирован)
 

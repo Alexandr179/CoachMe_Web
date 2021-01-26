@@ -18,6 +18,6 @@ public class ConfirmController {
 
         boolean isConfirmed = confirmService.confirmUser(confirmCode);
         model.addAttribute("isConfirmed", isConfirmed);
-        return "sucess_confirm_page";
+        return "success_confirm_page";
     }
 }

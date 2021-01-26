@@ -6,6 +6,8 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+<#--    <meta name="_csrf" content="${_csrf.token}"/>-->
+<#--    <meta name="_csrf_header" content="${_csrf.headerName}"/>-->
 
     <title><@spring.message 'profile.page.title'/></title>
 <#--    <#include "commons/bootstrap-jetty-common.ftlh" />-->
@@ -40,38 +42,21 @@
         <div class="row justify-content-left ml-5">
             <div class="col-2"></div>
             <div class="col-7">
-                <img class="ml-4" src="/img/logo_width.png" alt="" width="700" height="463">
-                <h5 class="mt-3 ml-4">How are you? And what are you doing here:)</h5>
+<#--                <img class="ml-4" src="/img/logo_width.png" alt="" width="700" height="463">-->
+<#--                <h5 class="mt-3 ml-4">How are you? And what are you doing here:)</h5>-->
             </div>
             <div class="col-3"></div>
         </div>
 
-        <div class="row justify-content-center">
-            <div class="col-4"></div>
-            <div class="col-4">
-                <nav class="navbar navbar-light">
-                    <a class="btn btn-outline-success" href="/profile/coach" role="button"><@spring.message 'profile.btn.coach'/></a>
-                    <a class="btn btn-outline-success" href="/profile/problem-person" role="button"><@spring.message 'profile.btn.problem'/></a>
-                </nav>
-            </div>
-            <div class="col-4"></div>
-        </div>
 
         <div class="row justify-content-left mt-4">
             <div class="col-2"></div>
             <div class="col-8">
-                <p class="word-break: break-word"><@spring.message 'profile.page.text.main'/></p>
+<#--                <p class="word-break: break-word"><@spring.message 'profile.page.text.main'/></p>-->
             </div>
             <div class="col-2"></div>
         </div>
 
-        <div class="row justify-content-center">
-<#--            <div class="col-2"></div>               class="col-8"-->
-            <div>
-                <h4><@spring.message 'profile.page.text.slogan'/></h4>
-            </div>
-<#--            <div class="col-2"></div>-->
-        </div>
 
     </div>
 

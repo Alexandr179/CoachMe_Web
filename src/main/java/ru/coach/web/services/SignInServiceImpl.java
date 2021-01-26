@@ -14,6 +14,6 @@ public class SignInServiceImpl implements SignInService {
 
     @Override
     public User loadUserByUsername(String email) throws UsernameNotFoundException {
-        return userRepository.findByEmail(email).orElseThrow(() -> {throw new UsernameNotFoundException("User not found");});
+        return userRepository.findFirstByEmail(email).orElseThrow(() -> {throw new UsernameNotFoundException("User not found");});
     }
 }

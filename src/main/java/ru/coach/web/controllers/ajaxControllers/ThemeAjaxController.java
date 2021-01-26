@@ -19,7 +19,6 @@ public class ThemeAjaxController {
             produces = MediaType.APPLICATION_JSON_VALUE)
     public @ResponseBody List<ThemeForm> addUser(@RequestBody ThemeForm themeForm) {
         themeService.addUserToTheme(themeForm);
-        System.out.println(themeForm);
         return themeService.getAllNameThemes();
     }
 }

@@ -11,7 +11,7 @@ import ru.coach.web.rerpositories.UserRepository;
 import ru.coach.web.security.details.UserDetailsImpl;
 
 @Controller
-public class ProfileController {
+public class CoachController {
 
     @Autowired
     private UserRepository userRepository;
@@ -19,12 +19,12 @@ public class ProfileController {
     @Autowired
     private ThemeRepository themeRepository;
 
-    @GetMapping("/profile")
+    @GetMapping("/profile/coach")
     public String getUsersPage(@AuthenticationPrincipal UserDetailsImpl userDetails, Model model){
         User authUser = userDetails.getUser();
         model.addAttribute("authUser", authUser);
         model.addAttribute("users", userRepository.findAll());
         model.addAttribute("themes", themeRepository.findAll());
-        return "profile_page";
+        return "coach_profile_page";
     }
 }

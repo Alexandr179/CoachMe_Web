@@ -17,7 +17,6 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-
 @Entity
 @Table(name = "simple_user")
 public class User {
@@ -39,6 +38,19 @@ public class User {
     private String confirmCode;
 
     @ManyToMany(mappedBy = "users")
-    @JsonIgnore
     private List<Theme> themes;
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", email='" + email + '\'' +
+                ", hashPassword='" + hashPassword + '\'' +
+                ", authority=" + authority +
+                ", state=" + state +
+                ", confirmCode='" + confirmCode + '\'' +
+                '}';
+    }
 }

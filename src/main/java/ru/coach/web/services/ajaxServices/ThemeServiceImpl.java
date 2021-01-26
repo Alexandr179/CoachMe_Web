@@ -1,5 +1,6 @@
 package ru.coach.web.services.ajaxServices;
 
+import lombok.NonNull;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -25,27 +26,29 @@ public class ThemeServiceImpl implements ThemeService {
     @Autowired
     private UserRepository userRepository;
 
+    /**
+     * @param themeForm is form-data from ajax.
+     *                  adding to entity with joinedTable!! <----------------
+     */
     @Override
-    public void addUserToTheme(ThemeForm themeForm) {
-        List<User> themeUsers = userRepository.findAll();
-        Optional<User> userOptionalByEmail = userRepository.findByEmail(themeForm.getUserEmail());
-        Theme theme = null;
-        if (userOptionalByEmail.isPresent()) {
-            themeUsers.add(userOptionalByEmail.get());
-            theme = Theme.builder()
-                    .name(themeForm.getThemeName())
-                    .users(themeUsers)
-                    .build();
-            themeRepository.save(theme);
-        }
-        log("Saved Theme:" +  theme);
+    public void addUserToTheme(@NonNull ThemeForm themeForm) {//TODO without confirm on existing by ..name's!
+        String userEmail = themeForm.getUserEmail();
+        User user = userRepository.findAllByEmail(userEmail).get(0);// anyone ..User
+        log.info("user.getThemes(): " + user.getThemes());
+
+        String themeName = themeForm.getThemeName();
+        Theme theme = themeRepository.findAllByName(themeName).get(0);//Theme
+        theme.getUsers().add(user);
+        log.warn("user.getThemes() AFTER adding: " + user.getThemes());
+
+        themeRepository.save(theme);
     }
 
     @Override
     public List<ThemeForm> getAllNameThemes() {
         return themeRepository.findAll().stream()
                 .map(theme -> ThemeForm.builder()
-                .themeName(theme.getName())
-                .build()).collect(Collectors.toList());
+                        .themeName(theme.getName())
+                        .build()).collect(Collectors.toList());
     }
 }
